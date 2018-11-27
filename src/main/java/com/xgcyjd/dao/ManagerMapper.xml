@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgcyjd.dao.ManagerMapper">
+    <insert id="insertMapper" parameterType="com.xgcyjd.po.Manager">
+        insert into manager values (#{id},#{stu_id},#{name},#{password},#{group_id},#{post},#{mobile_phone},#{mail_box},#{QQ},#{remark})
+    </insert>
+
+    <select id="findManagerByStuId" parameterType="Integer" resultType="com.xgcyjd.po.Manager">
+        select * from manager where stu_id = #{stu_id}
+    </select>
+</mapper>

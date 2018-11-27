@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgcyjd.dao.ArchivesDetailMapper">
+    <insert id="insertArchivesDetail" parameterType="com.xgcyjd.po.ArchivesDetail">
+        insert into archives_detail values (#{id}, #{author},#{title}, #{content}, #{accessory}, #{state}, #{receiver})
+    </insert>
+    <delete id="deleteArchivesDetailById" parameterType="java.lang.Integer">
+        delete from archives_detail where id = #{id}
+    </delete>
+    <select id="findArchivesDetailByAuthor" resultType="com.xgcyjd.po.ArchivesDetail">
+        select * from archives_detail where author = #{author} limit #{pageStartPos},#{pageSize}
+    </select>
+    <select id="getCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(*) from archives_detail where author = #{author}
+    </select>
+    <update id="checkArchivesDetail" parameterType="com.xgcyjd.po.ArchivesDetail">
+        update archives_detail set state =#{state} where author =#{author}
+    </update>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgcyjd.dao.ExamineSystemMapper">
+    <insert id="insertExamineSystem" parameterType="com.xgcyjd.po.ExamineSystem">
+        insert  into  examine_system values (#{id}, #{examine_item}, #{description}, #{standard}, #{remark})
+    </insert>
+    <select id="getExamineSystem" resultType="com.xgcyjd.po.ExamineSystem">
+        select * from examine_system
+    </select>
+    <delete id="deleteExamineSystem" parameterType="java.lang.Integer">
+        delete from examine_system where id = #{id};
+    </delete>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgcyjd.dao.ArchivesMapper">
+    <update id="readArchivesDetail" parameterType="com.xgcyjd.po.Archives">
+        update archives set state =#{state} where user_id=#{user_id} AND archives_detail_id = #{archives_detail_id}
+    </update>
+    <insert id="insertArchives" parameterType="java.util.ArrayList">
+        insert into archives
+        values
+        <foreach collection="list" item= "Archives" separator="," index="index">
+            (#{id}, #{archives_detail_id, #{user_id}, #{state})
+        </foreach>
+    </insert>
+</mapper>
